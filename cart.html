@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Shopping Cart</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="product.html">Product</a></li>
+                <li><a href="cart.html">Checkout</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+        </div>
+    </header>
+
+    <main>
+        <section class="cart-summary">
+            <h2>Cart Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Organic Apples</td>
+                        <td>
+                            <input type="number" value="2" min="1">
+                        </td>
+                        <td>300TK</td>
+                        <td><button class="remove-item">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td>Organic Oranges</td>
+                        <td>
+                            <input type="number" value="1" min="1">
+                        </td>
+                        <td>299Tk</td>
+                        <td><button class="remove-item">Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td>Organic Dates</td>
+                        <td>
+                            <input type="number" value="1" min="1">
+                        </td>
+                        <td>1200TK</td>
+                        <td><button class="remove-item">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Total Cost Section with Updated Button -->
+        <section class="total-cost">
+            <h2>Total Cost</h2>
+            <p><strong>Subtotal:</strong> 1799TK</p>
+            <p><strong>Tax (5%):</strong> 89.95TK</p>
+            <p><strong>Total:</strong> 1888.95Tk</p>
+            <a href="#checkout"><button class="checkout-button">Proceed to Checkout</button></a>
+        </section>
+
+        <!-- Checkout Forms -->
+        <section id="checkout" class="checkout">
+            <h2>Checkout</h2>
+            <form action="process_checkout.php" method="POST">
+                <!-- Shipping Details -->
+                <div class="shipping-info">
+                    <h3>Shipping Information</h3>
+                    <input type="text" name="name" placeholder="Full Name" required>
+                    <input type="text" name="address" placeholder="Shipping Address" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+        
+                <div class="payment-info">
+                    <h3>Payment Details</h3>
+                    <label>
+                        <input type="radio" name="payment-method" value="cash-on-delivery" required> 
+                        Cash on Delivery
+                    </label>
+                    <label>
+                        <input type="radio" name="payment-method" value="bkash" required> 
+                        bKash <img src="https://download.logo.wine/logo/BKash/BKash-Icon-Logo.wine.png" alt="bKash Logo" class="payment-logo">
+                    </label>
+                </div>
+        
+                <!-- bKash Payment Details (Conditional) -->
+                <div class="bkash-info" style="display: none;">
+                    <h4>bKash Payment</h4>
+                    <p>Send the amount to this bKash number: <strong>01XXXXXXXXX</strong></p>
+                    <input type="text" name="bkash-number" placeholder="Enter bKash Transaction ID">
+                </div>
+        
+                <!-- Review & Submit -->
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <p>Items: 1799TK</p>
+                    <p>Shipping: 60TK</p>
+                    <p>Total: 1859TK</p>
+                </div>
+            </form>
+
+            <!-- Place Order Button -->
+            <form id="checkout-form">
+                <button type="button" class="place-order-btn" onclick="checkout()">Place Order</button>
+            </form>    
+
+        </section>
+         
+        <!-- Order Confermation -->
+        <section class="order-confirmation">
+            <h2>Thank you for your order!</h2>
+            <p>Your order has been placed successfully.</p>
+            <p>Order ID: #12345</p>
+            <p>Estimated Delivery: 3-5 business days</p>
+        </section>     
+        
+        <script>
+            const paymentOptions = document.querySelectorAll('input[name="payment-method"]');
+            const bkashInfo = document.querySelector('.bkash-info');
+        
+            paymentOptions.forEach(option => {
+                option.addEventListener('change', function() {
+                    if (this.value === 'bkash') {
+                        bkashInfo.style.display = 'block';  // Show bKash input if selected
+                    } else {
+                        bkashInfo.style.display = 'none';  // Hide bKash input if another method is selected
+                    }
+                });
+            });
+        </script>        
+        
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Business Name. All rights reserved.</p>
+    </footer>
+    <script src="cart.js"></script>
+</body>
+</html>

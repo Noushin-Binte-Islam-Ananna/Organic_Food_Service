@@ -1,0 +1,139 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* General header styling */
+header {
+    display: flex;
+    justify-content: space-between; /* Space out logo, nav, and search bar */
+    align-items: center;
+    background-color: #4CAF50;
+    padding: 20px;
+    color: white;
+}
+
+/* Logo styling */
+.logo h1 {
+    font-size: 1.8rem;
+    margin: 0;
+    color: white;
+}
+
+/* Navigation menu styling */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Space between each nav item */
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: color 0.3s ease; /* Smooth transition for hover */
+}
+
+nav ul li a:hover {
+    color: orange; /* Change text color to orange on hover */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items vertically on small screens */
+        gap: 10px; /* Reduce gap between nav items */
+    }
+
+    .search-bar {
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: 100%; /* Search bar takes full width on small screens */
+    }
+}
+
+.about-container {
+    max-width: 800px; /* Center the content */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    color: #28a745; /* Green color for headings */
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+p {
+    line-height: 1.6;
+    margin: 10px 0;
+}
+
+ul {
+    margin: 10px 0;
+    padding-left: 20px; /* Indent list items */
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+strong {
+    color: #333; /* Darker color for emphasized text */
+}
+
+.contact-details, .social-media {
+    margin-bottom: 20px;
+}
+
+.social-media {
+    text-align: center;
+}
+
+.social-icons {
+    margin-bottom: 10px;
+}
+
+.social-icon {
+    margin: 0 10px;
+    font-size: 24px; /* Icon size */
+    color: #4CAF50; /* Green color */
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #45a049; /* Darker green on hover */
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}

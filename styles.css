@@ -1,0 +1,227 @@
+/* Basic Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    font-size: 24px;
+}
+
+/* Navigation Menu */
+header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header nav ul li {
+    position: relative;
+}
+
+header nav ul li a {
+    color: white; /* Default text color */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease; /* Smooth transition for color */
+}
+
+header nav ul li a:hover {
+    color: #FFA500; /* Change text color to orange on hover */
+}
+
+/* Shop Now Button */
+.shop-btn {
+    padding: 15px 30px;
+    background-color: #FFA500;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.shop-btn:hover {
+    background-color: #FF8C00; /* Darker shade on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Add shadow on hover */
+    transform: translateY(-3px); /* Button slightly moves up */
+}
+
+
+header .search-bar input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Header Section Adjustments */
+header .header-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adds space between search bar and login link */
+}
+
+header .login a {
+    background-color: #FFA500;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+header .login a:hover {
+    background-color: #FF8C00; /* Darker orange on hover */
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('cover.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero .btn {
+    padding: 10px 20px;
+    background-color: #FFA500;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Categories Section */
+.categories {
+    padding: 50px 20px;
+    background-color: white;
+    text-align: center;
+}
+
+.categories h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.category-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.category-card {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.category-card h4 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+/* Featured Products Section */
+.featured-products {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.featured-products h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.product-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.product-card {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-card h4 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.product-card p {
+    font-size: 16px;
+    color: #4CAF50;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer .social-media a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-media a {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #FFA500; /* Change the color on hover */
+}
