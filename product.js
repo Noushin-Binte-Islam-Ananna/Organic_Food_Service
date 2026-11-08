@@ -10,15 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const productDetails = {
                 id: product.querySelector('h1') ? product.querySelector('h1').textContent : 'Unnamed Product',
-                price: product.querySelector('.price') ? parseFloat(product.querySelector('.price').textContent.replace('Tk', '')) || 0 : 0,
+                price: product.querySelector('.price') ? parseFloat(product.querySelector('.price').textContent.replace(/tk/i, '')) || 0 : 0,
                 description: product.querySelector('.description') ? product.querySelector('.description').textContent : 'No Description',
                 image: product.querySelector('img') ? product.querySelector('img').src : 'default-image.jpg'
             };                   
 
             // Add product to cart array (pass parsed price directly)
+            // FIX: addToCart() already shows the alert; the extra one here made it pop up twice
             addToCart(productDetails.id, productDetails.price);
-
-            alert(`${productDetails.id} added to cart!`);
         });
     });
 });

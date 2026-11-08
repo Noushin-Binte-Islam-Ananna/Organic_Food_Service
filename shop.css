@@ -147,3 +147,49 @@ footer {
     background-color: #f4f4f4;
     margin-top: 20px;
 }
+
+/* ================= FIXES: responsive header & images (all pages) ================= */
+header {
+    flex-wrap: wrap;            /* logo / nav / search no longer overflow on tablets */
+    gap: 10px 20px;
+}
+nav ul {
+    flex-wrap: wrap;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+@media screen and (max-width: 768px) {
+    /* a wrapped row of links is much shorter than a 7-item vertical list */
+    header nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+    header .search-bar {
+        width: 100%;
+    }
+    header .search-bar input {
+        width: 100%;
+    }
+}
+
+/* FIX: the mobile rules above were overridden by these later desktop rules, and
+   the grid only used 80% of the page (empty strip on the right). */
+main { display: block; }
+.product-grid {
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(min(200px, 100%), 1fr));
+}
+/* same image shape for every card + "Add to Cart" always at the bottom = aligned rows */
+.product-card { display: flex; flex-direction: column; }
+.product-card img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.product-card .add-to-cart { margin-top: auto; }
+@media screen and (max-width: 480px) {
+    main { margin: 12px; }
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .product-card { padding: 12px; }
+    .product-card h3 { font-size: 1rem; }
+    .add-to-cart { width: 100%; }
+}

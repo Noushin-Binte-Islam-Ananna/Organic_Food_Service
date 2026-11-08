@@ -225,3 +225,43 @@ footer .social-media a {
 .social-media a:hover {
     color: #FFA500; /* Change the color on hover */
 }
+
+/* ================= FIXES: responsive header & images (all pages) ================= */
+header {
+    flex-wrap: wrap;            /* logo / nav / search no longer overflow on tablets */
+    gap: 10px 20px;
+}
+nav ul {
+    flex-wrap: wrap;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+@media screen and (max-width: 768px) {
+    /* a wrapped row of links is much shorter than a 7-item vertical list */
+    header nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px 16px;
+    }
+    header .search-bar {
+        width: 100%;
+    }
+    header .search-bar input {
+        width: 100%;
+    }
+}
+
+/* FIX: home page had no mobile rules at all */
+.hero { background-color: #2e7d32; }          /* shows instantly while cover.jpg downloads */
+.category-cards, .product-cards { flex-wrap: wrap; }   /* cards used to overflow the screen */
+.category-card, .product-card { flex: 1 1 260px; max-width: 360px; }
+@media screen and (max-width: 600px) {
+    .hero { padding: 60px 16px; }
+    .hero h2 { font-size: 28px; }
+    .hero p { font-size: 16px; }
+    .categories, .featured-products { padding: 30px 16px; }
+    .category-card, .product-card { max-width: 100%; }
+    .shop-btn { display: inline-block; padding: 12px 24px; font-size: 16px; }
+}

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organic Food Store</title>
+    <!-- FIX: start downloading the hero image immediately (it is a CSS background, so the browser finds it late) -->
+    <link rel="preload" as="image" href="cover.jpg">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -16,6 +19,8 @@
         </div>
         <nav>
             <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
                 <li><a href="product.html">Product</a></li>
                 <li><a href="cart.html">Checkout</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
@@ -42,15 +47,15 @@
         <h3>Shop by Category</h3>
         <div class="category-cards">
             <div class="category-card">
-                <img src="shop-category/veg.jpg" alt="Vegetables">
+                <img src="shop-category/veg.jpg" alt="Vegetables" width="800" height="533" loading="lazy" decoding="async">
                 <h4>Fresh Vegetables</h4>
             </div>
             <div class="category-card">
-                <img src="shop-category/fruits.jpg" alt="Fruits">
+                <img src="shop-category/fruits.jpg" alt="Fruits" width="800" height="533" loading="lazy" decoding="async">
                 <h4>Organic Fruits</h4>
             </div>
             <div class="category-card">
-                <img src="shop-category/dairy.jpg" alt="Dairy">
+                <img src="shop-category/dairy.jpg" alt="Dairy" width="800" height="533" loading="lazy" decoding="async">
                 <h4>Organic Dairy</h4>
             </div>
         </div>
@@ -61,15 +66,15 @@
         <h3>Featured Products</h3>
         <div class="product-cards">
             <div class="product-card">
-                <img src="feat-product/honey.jpg" alt="Product 1">
+                <img src="feat-product/honey.jpg" alt="Organic Honey" width="800" height="533" loading="lazy" decoding="async">
                 <h4>Organic Honey</h4>
             </div>
             <div class="product-card">
-                <img src="feat-product/nuts.jpg" alt="Product 2">
-                <h4>Nuts MIxed</h4>
+                <img src="feat-product/nuts.jpg" alt="Mixed Nuts" width="800" height="533" loading="lazy" decoding="async">
+                <h4>Mixed Nuts</h4>
             </div>
             <div class="product-card">
-                <img src="feat-product/dates.jpg" alt="Product 3">
+                <img src="feat-product/dates.jpg" alt="Fresh Dates" width="800" height="533" loading="lazy" decoding="async">
                 <h4>Fresh Dates</h4>
             </div>
         </div>

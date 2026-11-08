@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Organic Food Store</title>
     <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -56,39 +57,52 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const form = document.querySelector("form");
-            form.addEventListener("submit", (event) => {
+            form.addEventListener("submit", async (event) => {
                 event.preventDefault(); // Prevent form from refreshing the page
-                
-                // Validate inputs (optional)
+
+                // Validate inputs
                 const name = document.getElementById("name").value.trim();
                 const contact = document.getElementById("contact").value.trim();
                 const email = document.getElementById("email").value.trim();
                 const message = document.getElementById("message").value.trim();
-    
+
                 if (!name || !contact || !email || !message) {
                     alert("Please fill out all fields before submitting.");
                     return;
                 }
-    
-                // Create confirmation message element
-                const confirmationMessage = document.createElement("div");
-                confirmationMessage.innerHTML = `
-                    <div style="
-                        margin-bottom: 20px; 
-                        padding: 15px; 
-                        border: 1px solid #4caf50; 
-                        background-color: #e8f5e9; 
-                        color: #2e7d32; 
-                        border-radius: 5px;">
-                        <strong>Thank you!</strong> Your message has been successfully submitted.
-                    </div>
-                `;
-    
-                // Insert the confirmation message above the form
-                form.parentNode.insertBefore(confirmationMessage, form);
-    
-                // Optionally clear the form fields
-                form.reset();
+
+                // FIX: remove the old banner so repeated submits don't stack up
+                const old = document.getElementById("form-status");
+                if (old) old.remove();
+
+                const button = form.querySelector("button[type='submit']");
+                button.disabled = true;
+
+                let ok = false;
+                let text = "Sorry, something went wrong. Please try again.";
+                try {
+                    // FIX: the original never actually sent the data to submit_contact.php
+                    const response = await fetch("submit_contact.php", {
+                        method: "POST",
+                        body: new FormData(form)
+                    });
+                    text = (await response.text()).trim() || text;
+                    ok = response.ok && text.toLowerCase().startsWith("thank you");
+                } catch (error) {
+                    text = "Could not reach the server. Please try again later.";
+                }
+                button.disabled = false;
+
+                const status = document.createElement("div");
+                status.id = "form-status";
+                status.setAttribute("role", "status");
+                status.style.cssText = ok
+                    ? "margin-bottom:20px;padding:15px;border:1px solid #4caf50;background:#e8f5e9;color:#2e7d32;border-radius:5px;"
+                    : "margin-bottom:20px;padding:15px;border:1px solid #e53935;background:#ffebee;color:#c62828;border-radius:5px;";
+                status.textContent = text;   // textContent: safe, no HTML injection
+                form.parentNode.insertBefore(status, form);
+
+                if (ok) form.reset();
             });
         });
     </script>
